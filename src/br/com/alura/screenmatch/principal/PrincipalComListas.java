@@ -5,6 +5,7 @@ import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PrincipalComListas {
     public static void main(String[] args){
@@ -27,7 +28,19 @@ public class PrincipalComListas {
             if (item instanceof Filme filme){ //verifica se o titulo instaciado é um filme
                 System.out.println("classificação "+ filme.getClassificacao());
             }
-
         }
+
+        ArrayList<String> buscaArtista = new ArrayList<>();
+        buscaArtista.add("Emma Stone");
+        buscaArtista.add("Emma Watson");
+        buscaArtista.add("Emma Myers");
+        System.out.println(buscaArtista);
+
+        Collections.sort(buscaArtista);
+        System.out.println(buscaArtista);
+
+        System.out.println(listaDeAssistidos);
+        Collections.sort(listaDeAssistidos);
+        System.out.println(listaDeAssistidos);
     }
 }
