@@ -6,6 +6,8 @@ import br.com.alura.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class PrincipalComListas {
     public static void main(String[] args){
@@ -17,12 +19,11 @@ public class PrincipalComListas {
         var filmeDoRicardo = new Filme("Oppenheimer", 2023);
         filmeDoRicardo.avalia(9);
 
-        ArrayList<Titulo> listaDeAssistidos = new ArrayList<>();
+        List<Titulo> listaDeAssistidos = new ArrayList<>();
         listaDeAssistidos.add(meuFilme);
         listaDeAssistidos.add(outroFilme);
         listaDeAssistidos.add(filmeDoRicardo);
         listaDeAssistidos.add(lost);
-
         for (Titulo item: listaDeAssistidos) {
             System.out.println(item.getNome());
             if (item instanceof Filme filme){ //verifica se o titulo instaciado é um filme
@@ -30,17 +31,20 @@ public class PrincipalComListas {
             }
         }
 
-        ArrayList<String> buscaArtista = new ArrayList<>();
+        List<String> buscaArtista = new ArrayList<>();
         buscaArtista.add("Emma Stone");
         buscaArtista.add("Emma Watson");
         buscaArtista.add("Emma Myers");
         System.out.println(buscaArtista);
 
         Collections.sort(buscaArtista);
+        System.out.println("depois da ordenação");
         System.out.println(buscaArtista);
 
         System.out.println(listaDeAssistidos);
         Collections.sort(listaDeAssistidos);
+        System.out.println(listaDeAssistidos);
+        listaDeAssistidos.sort(Comparator.comparing(Titulo::getAnoDeLancamento));
         System.out.println(listaDeAssistidos);
     }
 }
