@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.modelos;
 
+import br.com.alura.screenmatch.exceptions.MinhaException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo>{
@@ -19,6 +20,11 @@ public class Titulo implements Comparable<Titulo>{
 
     public Titulo(TituloOMDB meuTituloOMDB) {
         this.nome = meuTituloOMDB.title();
+
+        if (meuTituloOMDB.year().length() < 4){
+            throw new MinhaException("Ano com mais de quatro caracteries.");
+        }
+
         this.anoDeLancamento = Integer.valueOf(meuTituloOMDB.year());
         this.duracaoEmMinutos = Integer.valueOf(meuTituloOMDB.runtime().substring(0,2));
     }
@@ -81,7 +87,7 @@ public class Titulo implements Comparable<Titulo>{
     @Override
     public String toString() {
         return "nome: " + nome +
-                ", anoDeLancamento: " + anoDeLancamento+
+                ", ano de lancamento: " + anoDeLancamento+
                 ", duração: "+ duracaoEmMinutos;
     }
 }
